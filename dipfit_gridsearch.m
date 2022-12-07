@@ -68,6 +68,9 @@ elseif isfield(EEG.dipfit, 'hdmfile')
 else
     error('no head model in EEG.dipfit')
 end
+if isfield(EEG.dipfit, 'sourcemodel')
+    cfg.sourcemodel  = EEG.dipfit.sourcemodel;
+end
 if isfield(EEG.dipfit, 'elecfile') && ~isempty(EEG.dipfit.elecfile)
     cfg.elecfile = EEG.dipfit.elecfile;
 end

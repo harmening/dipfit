@@ -293,6 +293,7 @@ if length(EEG) > 1
 end
 
 g = finputcheck(options, { 'hdmfile'  'string'    []         '';
+                                 'sourcemodel'  'struct'  []         [];
                                  'mrifile'  'string'    []         '';
                                  'chanfile' 'string'    []         '';
                                  'chansel'  'integer'   []         [1:EEG.nbchan];
@@ -303,6 +304,7 @@ if isstr(g), error(g); end
 
 OUTEEG = rmfield(OUTEEG, 'dipfit');
 OUTEEG.dipfit.hdmfile     = g.hdmfile;
+OUTEEG.dipfit.sourcemodel = g.sourcemodel;
 OUTEEG.dipfit.mrifile     = g.mrifile;
 OUTEEG.dipfit.chanfile    = g.chanfile;
 OUTEEG.dipfit.chansel     = g.chansel;
